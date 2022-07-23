@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .forms import ImageForm
 from .models import Image
 # Create your views here.
-def home(request):
+def index(request):
     
     if request.method=="POST":
         form=ImageForm(request.POST, request.FILES)
@@ -10,4 +10,4 @@ def home(request):
             form.save()
     form=ImageForm()
     img=Image.objects.all()
-    return render(request,'home.html',{'img':img, 'form':form})
+    return render(request,'index.html',{'img':img, 'form':form})
